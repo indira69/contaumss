@@ -49,25 +49,13 @@ $(document).ready(function() {
 	} ); // fin #tabla2 tbody
 
 			
-	$("#btnBorrarIngreso").click(function(){
-        	borrarFormularioIngreso();
+	$("#btnBorrarComprobante").click(function(){
+        	borrarFormularioComprobante();
     });	
     		
-
-	$("#btnBorrarSalida").click(function(){
-        	borrarFormularioSalida();
-    });	
-
-
-	$("#btnGrabarIngreso").click(function(){
+	$("#btnGrabarComprobante").click(function(){
 	// grabar ingreso [almacen/bodega]
-    	grabarIngreso();
-	});
-	
-	
-	$("#btnGrabarSalida").click(function(){
-	// grabar salida [almacen/bodega]
-    	grabarSalida();
+    	grabarComprobante();
 	});
 				
 }); // fin document.ready 
@@ -90,7 +78,11 @@ function verificarCodigoRepetido(codigoCuenta,posicionFila,limiteArreglo){
 	return codigoRepetido;
 }	// fin funcion verificarCodigoRepetido 
 	
+<<<<<<< HEAD
 function borrarFormularioIngreso(){
+=======
+function borrarFormularioComprobante(){
+>>>>>>> develop
 	//...esta funcion borra los datos del formularioIngreso
 	var fila = document.getElementsByClassName("detalleMaterial");
 	for(var i=0; i<fila.length; i++){
@@ -101,6 +93,7 @@ function borrarFormularioIngreso(){
 		$("#glosa_"+i).val("");
 		$("#detalleTotalHaber").val("");
 	} // fin ciclo FOR
+<<<<<<< HEAD
 } // fin funcion borrarFormularioIngreso 
 	
 function borrarFormularioSalida(){
@@ -117,6 +110,11 @@ function borrarFormularioSalida(){
 } // fin funcion borrarFormularioSalida 
 
 function grabarIngreso(){
+=======
+} // fin funcion borrarFormularioComprobante
+	 
+function grabarComprobante(){
+>>>>>>> develop
 	
 	var i=0;
 	var registrosValidos= true;	  // ... bandera para grabar o no grabar registros ...
@@ -170,6 +168,7 @@ function grabarIngreso(){
 			
 }	// ... fin funcion grabarIngreso() ...
 
+<<<<<<< HEAD
 function grabarSalida(){
 	
 	var i=0;
@@ -216,6 +215,8 @@ function grabarSalida(){
 	}
 			
 }	// ... fin funcion grabarSalida() ...
+=======
+>>>>>>> develop
 		
 function validarMontoDebe(numero, filaExistencia){
 			
@@ -236,15 +237,33 @@ function validarMontoDebe(numero, filaExistencia){
 	    		var cantidad=$("#cantDebe_"+filaExistencia).val();
 		   		cantidad=parseFloat(cantidad);
 	    		$("#cantDebe_"+filaExistencia).val( separadorMiles( cantidad.toFixed(2) ) );   //... actualiza cantHaber
-	    		calcularTotalDebe();   //... actualiza totalDebe formulario ingreso
+	    		calcularTotalDebe();   //... actualiza totalDebe formulario 
 	    	}
     	}
 	    		
 	}
 }   // fin ... validarMontoDebe ...
 
+
+function validarMontoDebeM(numero, filaExistencia){		//...validarMontoDebeM ... modificar comprobante ...
+	if (!/^\d{1,9}(\.\d{1,3})?$/.test(numero)){  // ...hasta 4 digitos parte entera y hasta 3 parte decimal ...
+    		alert("El valor " + numero + " no es válido");
+    		$("#cantDebe_"+filaExistencia).val("");   // borra celda de cantidad
+    	}else{
+    		if($("#cantHaber_"+filaExistencia).val()!=''){
+				alert("¡¡¡ ERROR !!! La celda del HABER ya esta llenada.");
+				$("#cantDebe_"+filaExistencia).val("");   // borra celda de DEBE
+    		}else{
+	    		var cantidad=$("#cantDebe_"+filaExistencia).val();
+		   		cantidad=parseFloat(cantidad);
+	    		$("#cantDebe_"+filaExistencia).val( separadorMiles( cantidad.toFixed(2) ) );   //... actualiza cantHaber
+	    		calcularTotalDebeM();   //... actualiza totalDebe formulario 
+	    	}
+    	}
+}   // fin ... validarMontoDebeM(odificacion) ...
+
+
 function validarMontoHaber(numero, filaExistencia){
-			
 	if($("#idCta_"+filaExistencia).val()==""){
 		alert("¡¡¡ ERROR !!! Primero seleccione un registro para ingresar monto.");
 		$("#cantHaber_"+filaExistencia).val("");   // borra celda de HABER
@@ -262,12 +281,30 @@ function validarMontoHaber(numero, filaExistencia){
 		   		var cantidad=$("#cantHaber_"+filaExistencia).val();
 		   		cantidad=parseFloat(cantidad);
 	    		$("#cantHaber_"+filaExistencia).val( separadorMiles( cantidad.toFixed(2) ) );   //... actualiza cantHaber
-	    		calcularTotalHaber();   //... actualiza totalHaber formulario ingreso
+	    		calcularTotalHaber();   //... actualiza totalHaber formulario
 	    	}
     	}
 	    		
 	}
 }   // fin ... validarMontoHaber ...
+
+function validarMontoHaberM(numero, filaExistencia){		//...validarMontoHaberM ... modificar comprobante ...
+	if (!/^\d{1,9}(\.\d{1,3})?$/.test(numero)){  // ...hasta 4 digitos parte entera y hasta 3 parte decimal ...
+    		alert("El valor " + numero + " no es válido");
+    		$("#cantHaber_"+filaExistencia).val("");   // borra celda de cantidad
+    	}else{
+    		if($("#cantDebe_"+filaExistencia).val()!=""){
+				alert("¡¡¡ ERROR !!! La celda del DEBE ya esta llenada.");
+				$("#cantHaber_"+filaExistencia).val("");   // borra celda de cantidad
+    		}else{
+		   		var cantidad=$("#cantHaber_"+filaExistencia).val();
+		   		cantidad=parseFloat(cantidad);
+	    		$("#cantHaber_"+filaExistencia).val( separadorMiles( cantidad.toFixed(2) ) );   //... actualiza cantHaber
+	    		calcularTotalHaberM();   //... actualiza totalHaber formulario
+	    	}
+    	}
+}   // fin ... validarMontoHaberM(odificacion) ...
+
 
 function validarGlosa(numero, filaExistencia){
 			
@@ -284,7 +321,7 @@ function calcularTotalDebe(){
 	totalDebe=0;
 	totalDebe=parseFloat(totalDebe);
 		
-	while($("#idCta_"+i).val()!= ""){
+	while($("#idCta_"+i).val()!= null){
 		if( $("#cantDebe_"+i).val()!= "" ){		//...toma los DEBE distintos de vacio ...
 			var cantidad=$("#cantDebe_"+i).val();
 			cantidad=cantidad.split(','); //... elimina ,
@@ -307,13 +344,61 @@ function calcularTotalDebe(){
 } // fin funcion ... calcularTotalDebe
 
 
-function calcularTotalHaber(){
+function calcularTotalDebeM(){			//...calculartotalDebeM ... modificar comprobante ...
 	//...suma los importes del formularioIngreso
+	var i=0;
+	totalDebe=0;
+	totalDebe=parseFloat(totalDebe);
+				
+	while($("#idCta_"+i).val()!=null){
+		if( $("#cantDebe_"+i).val()!= null ){		//...toma los DEBE distintos de vacio ...
+			var cantidad=$("#cantDebe_"+i).val();
+			cantidad=cantidad.split(','); //... elimina ,
+			cantidad=cantidad[0]+cantidad[1]+cantidad[2];	
+			cantidad=parseFloat( cantidad	);
+			totalDebe= totalDebe +  cantidad ;				
+		}
+		i++;
+	} // fin ciclo WHILE
+	
+	totalDebeHaber=parseInt(totalDebe);
+	
+	totalDebe=separadorMiles(totalDebe.toFixed(2) ); 
+	
+	if($("#detalleTotalDebe").val()==$("#detalleTotalHaber").val() && $("#detalleTotalDebe").val()!="" ){
+		var posicionDecimal=totalDebe.lastIndexOf('.');   //... devuelve posicion donde se encuentra el punto .
+		var parteDecimal=totalDebe.substring(posicionDecimal+1);  //... devuelve parte decimal del numero ...
+		
+		$.ajax({
+	    	url: "convertirNumeroAliteral",  //"convertirNumeroAliteral('1490)",
+	        type:"POST",
+	        data:{ cadena:totalDebeHaber},
+	        dataType: "json",
+	        success: function(data){    
+	//      	   console.log(data);               
+	 		   document.form_.inputLiteral.value="Son: "+ data["literal"] + parteDecimal +"/100 Bolivianos";
+	        }
+    	});
+		
+		/*
+		 $('#detalleTotalHaber').on("change", 'input[type="text"]', function() {  
+		 console.log("test")
+		});
+		*/
+	}else{
+		$("#inputLiteral").val("");			//... blanquea campo donde se muestra la lietarlnumerica...
+	}		//...fin IF totalDebe == totalhaber ....
+	
+} // fin funcion ... calcularTotalDebeM(odificado)
+
+
+function calcularTotalHaber(){
+	//...suma los importes del formulario
 	var i=0;
 	totalHaber=0;
 	totalHaber=parseFloat(totalHaber);
 		
-	while($("#idCta_"+i).val()!= ""){
+	while($("#idCta_"+i).val()!= null){
 		if( $("#cantHaber_"+i).val()!= "" ){ 		//...toma los HABER distintos de vacio ...
 			var cantidad=$("#cantHaber_"+i).val();
 			cantidad=cantidad.split(','); //... elimina ,
@@ -336,6 +421,52 @@ function calcularTotalHaber(){
 		
 } // fin funcion ... calcularTotalHaber 
 
+function calcularTotalHaberM(){			//...calculartotalHaberM ... modificar comprobante ...
+	//...suma los importes del formulario
+	var i=0;
+	totalHaber=0;
+	totalHaber=parseFloat(totalHaber);
+				
+	while($("#idCta_"+i).val()!=null){
+		if( $("#cantHaber_"+i).val()!= null ){		//...toma los DEBE distintos de vacio ...
+			var cantidad=$("#cantHaber_"+i).val();
+			cantidad=cantidad.split(','); //... elimina ,
+			cantidad=cantidad[0]+cantidad[1]+cantidad[2];	
+			cantidad=parseFloat( cantidad	);
+			totalHaber= totalHaber +  cantidad ;				
+		}
+		i++;
+	} // fin ciclo WHILE
+	
+	totalDebeHaber=parseInt(totalHaber);
+	
+	totalHaber=separadorMiles(totalHaber.toFixed(2) ); 
+	
+	if($("#detalleTotalDebe").val()==$("#detalleTotalHaber").val() && $("#detalleTotalHaber").val()!="" ){
+		var posicionDecimal=totalHaber.lastIndexOf('.');   //... devuelve posicion donde se encuentra el punto .
+		var parteDecimal=totalHaber.substring(posicionDecimal+1);  //... devuelve parte decimal del numero ...
+		
+		$.ajax({
+	    	url: "convertirNumeroAliteral",  //"convertirNumeroAliteral('1490)",
+	        type:"POST",
+	        data:{ cadena:totalDebeHaber},
+	        dataType: "json",
+	        success: function(data){    
+	//      	   console.log(data);               
+	 		   document.form_.inputLiteral.value="Son: "+ data["literal"] + parteDecimal +"/100 Bolivianos";
+	        }
+    	});
+		
+		/*
+		 $('#detalleTotalHaber').on("change", 'input[type="text"]', function() {  
+		 console.log("test")
+		});
+		*/
+	}else{
+		$("#inputLiteral").val("");			//... blanquea campo donde se muestra la lietarlnumerica...
+	}		//...fin IF totalDebe == totalhaber ....
+		
+} // fin funcion ... calcularTotalHaberM(odificado)
 
 function verLiteralNumerica(){
 	//... si los totales DEBE y HABER son iguales muestra la literalNumerica...
@@ -362,7 +493,7 @@ function verLiteralNumerica(){
 	}else{
 		$("#inputLiteral").val("");			//... blanquea campo donde se muestra la lietarlnumerica...
 	}
-}
+}		//...fin funcion: verLiteralNumerica ...
 
 
 function separadorMiles(n){

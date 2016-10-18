@@ -30,6 +30,7 @@
  			</li>              
 
             <li class="dropdown" >
+<<<<<<< HEAD
                 <a href="<?=base_url();?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span> Inventarios <b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                     <li class="divider"></li>
@@ -162,6 +163,8 @@
             </li>
 
             <li class="dropdown" >
+=======
+>>>>>>> develop
                 <a href="<?=base_url();?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> Contabilidad <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pencil"></span> Comprobantes</a>
@@ -169,6 +172,7 @@
                     		<li><a href="<?=base_url();?>contabilidad/comprobante?tipoComprobante=ingreso"><span class="glyphicon glyphicon-log-in"></span> Ingreso</a></li>
 							<li><a href="<?=base_url();?>contabilidad/comprobante?tipoComprobante=egreso"><span class="glyphicon glyphicon-log-out"></span> Egreso</a></li>
 							<li><a href="<?=base_url();?>contabilidad/comprobante?tipoComprobante=diario"><span class="glyphicon glyphicon-new-window"></span> Diario</a></li>
+<<<<<<< HEAD
 							
 							<li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span> Buscar</a>
 	                    		<ul class="dropdown-menu">
@@ -177,6 +181,14 @@
 									<li><a href="<?=base_url();?>contabilidad/...?tipoComprobante=diario"><span class="glyphicon glyphicon-new-window"></span> Diario</a></li>
 								</ul>	
 							</li>
+=======
+							<li><a href="<?=base_url();?>contabilidad/buscarComprobante"><span class="glyphicon glyphicon-edit"></span> Modificar</a></li>
+							
+							
+							<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-unchecked"></span> Ajuste ...PENDIENTE</a></li>
+							
+							<li><a href="<?=base_url();?>contabilidad/verComprobante"><span class="glyphicon glyphicon-search"></span> Buscar</a></li>
+>>>>>>> develop
 							
 						</ul>
 					</li>
@@ -186,6 +198,10 @@
 							<li><a href="<?=base_url();?>contabilidad/reporteContabilidad?reporte=MY"><span class="glyphicon glyphicon-book"></span> Libro Mayor</a></li>
 							<li><a href="<?=base_url();?>contabilidad/reporteContabilidad?reporte=SS"><span class="glyphicon glyphicon-plus-sign"></span><span class="glyphicon glyphicon-minus-sign"></span> Balance Sumas y Saldos</a></li>
 							<li><a href="<?=base_url();?>contabilidad/reporteContabilidad?reporte=BG"><span class="glyphicon glyphicon-book"></span><span class="glyphicon glyphicon-pencil"></span> Balance General</a></li>
+<<<<<<< HEAD
+=======
+							<li><a href="<?=base_url();?>contabilidad/reporteContabilidad?reporte=ER"><span class="glyphicon glyphicon-usd"></span><span class="glyphicon glyphicon-ok"></span> Estado de Resultados</a></li>
+>>>>>>> develop
 							
 							<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> otros ....</a></li>
 						</ul>
@@ -196,7 +212,11 @@
 							<li><a href="<?=base_url();?>contabilidad/generarReportePlanDeCuentas"><span class="glyphicon glyphicon-print"></span> Plan de Cuentas</a></li>
 						</ul>
 					</li>
+<<<<<<< HEAD
                     <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Iniciar Gesti&oacute;n Mensual</a></li>
+=======
+                    <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Iniciar Per&iacute;odo de  Gesti&oacute;n</a></li>
+>>>>>>> develop
                     <li><a href="#">otros ...</a></li>
                 </ul>
             </li>
@@ -204,41 +224,7 @@
             <li class="dropdown" >
                 <a href="<?=base_url();?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tasks"></span> Administraci&oacute;n <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span> Inventarios</a>
-                    	<ul class="dropdown-menu">
-                    		<li><a href="<?=base_url();?>materiales/crudMaterial"><span class="glyphicon glyphicon-file"></span> CRUD Almac&eacute;n</a></li>
-                    		<li><a href="<?=base_url();?>materiales/buscarSalidaAlmacen"><span class="glyphicon glyphicon-pencil"></span> Modificar Salida de Almac&eacute;n</a></li>
-							<li><a href="<?=base_url();?>materiales/fechasReporteIngresoSalida?nombreDeposito=almacen&tipoTransaccion=salidas_modificadas"><span class="glyphicon glyphicon-list-alt"></span> Reporte Salidas Modificadas Almac&eacute;n</a></li>
-						</ul>
-					</li>
-                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Proveedores PENDIENTE</a>
-                    	<ul class="dropdown-menu">
-							<li><a href="#"><span class="glyphicon glyphicon-usd"></span> Libro Diario</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Libro Mayores</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Sumas y saldos</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> otros ....</a></li>
-						</ul>
-					</li>
-					<li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-signal"></span> Producci&oacute;n</a>
-                    	<ul class="dropdown-menu">
-							<li><a href="<?=base_url();?>produccion/crudMaterialArea"><span class="glyphicon glyphicon-file"></span> CRUD material X m2</a></li>
-							<li><a href="<?=base_url();?>contabilidad/generarReportePlanDeCuentas"><span class="glyphicon glyphicon-print"></span> Listado material X m2</a></li>
-							<li><a href="<?=base_url();?>produccion/crudManoObra"><span class="glyphicon glyphicon-file"></span> CRUD mano de obra</a></li>
-							<li><a href="<?=base_url();?>contabilidad/generarReportePlanDeCuentas"><span class="glyphicon glyphicon-print"></span> Listado mano de obra</a></li>
-							
-							<!--li><a href="<?=base_url();?>produccion/dataTable"><span class="glyphicon glyphicon-file"></span> data Table</a></li-->
-							
-						</ul>
-					</li>
-					
-					<li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tags"></span> Productos</a>
-                    	<ul class="dropdown-menu">
-							<li><a href="<?=base_url();?>tienda/crudProducto"><span class="glyphicon glyphicon-file"></span> CRUD productosfabrica</a></li>
-							<li><a href="<?=base_url();?>tienda/listaPreciosProductos"><span class="glyphicon glyphicon-print"></span> Lista de Precios</a></li>
-						</ul>
-					</li>
-					
-                    <li><a href="#"><span class="glyphicon glyphicon-time"></span> Iniciar Gesti&oacute;n PENDIENTE</a></li>
+                   
                     <li><a href="<?=base_url();?>menuController/respaldoBaseDatos"><span class="glyphicon glyphicon-floppy-save"></span> Respaldo Base  Datos</a></li>
                     <li><a href="#">otros ...</a></li>
                 </ul>

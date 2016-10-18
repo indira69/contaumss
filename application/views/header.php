@@ -24,7 +24,7 @@
                     				<?php
 										$usuarioConectado=$this->session->userdata('usuarioLogueado');
 										$usuarioNombre=$this->session->userdata('userName');
-										echo img('/assets/img/logo.jpg');
+										echo img('/assets/img/logo.png');
 									?>
 									</center>
 								</td>
@@ -35,7 +35,7 @@
 								
 								<td>
 									<center>
-										Sistema de Informaci&oacute;n IRBA Ltda.
+										Sistema de Contabilidad - UMSS Ltda.
 									</center>
 								</td>
 								

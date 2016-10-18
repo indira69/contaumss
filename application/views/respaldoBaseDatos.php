@@ -42,7 +42,11 @@ $(document).ready(function(){
 	<div class="row">
 	<h3><center><small>Crea un respaldo de la base de datos en la partición C:\respaldoBD</small></center></h3>
 	<?php
+<<<<<<< HEAD
 		$directorio='C:\respaldoBD';
+=======
+		$directorio='d:\respaldoBD';
+>>>>>>> develop
 		if (!file_exists($directorio)) {
 			echo"<p align='center'><code>NOTA: El directorio $directorio NO existe, se tiene que crear el directorio $directorio</code></p><br />";
 	?>
@@ -63,7 +67,11 @@ $(document).ready(function(){
         <div class="modal-content">
             <div class="modal-body" >
             	<?php
+<<<<<<< HEAD
             		shell_exec('c:\xampp\mysql\bin\mysqldump -u root irbadb>c:\respaldoBD\irbaDB.sql');
+=======
+            		shell_exec('d:\xampp\mysql\bin\mysqldump -u root contabilidad>d:\respaldoBD\contabilidadDB.sql');
+>>>>>>> develop
                     echo img('/assets/img/loading.gif');
                 ?>    
                 <h4>Procesando... <button type="button" class="close" style="float:none;" data-dismiss="modal" aria-hidden="true"  onClick="window.location.href='<?=base_url();?>menuController/index'" >×</button></h4>

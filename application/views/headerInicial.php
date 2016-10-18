@@ -23,13 +23,13 @@
                     			<td>
                     				<center>
                     				<?php
-										echo img('assets/img/logo.jpg');
+										echo img('assets/img/logo.png');
 									?>
 									</center>
 								</td>
 								<td>
 									<center>
-										Sistema de Informaci&oacute;n IRBA Ltda.
+										Sistema de Contabilidad - UMSS Ltda.
 									</center>
 								</td>
 								<td>
